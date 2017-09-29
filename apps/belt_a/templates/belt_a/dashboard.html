@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/logout">Logout</a>
+    <h2>Welcome, {{request.session.name}}!</h2>
+    <h4>{{current_user.received.all.count}} people poked you</h4>
+    <h5>People who have poked you:</h5>
+
+
+        {%for user in pokedme%}
+          <p>{{user.name}} poked you
+            {{pokecount}}
+            times. </p>
+        {%endfor%}
+
+
+
+
+    <h5>People you may want to poke:</h5>
+    Name
+    Alias
+    Email Address
+    Poke History
+    Action
+
+    {%for i in other_users%}
+    <p>{{i.name}} {{i.alias}} {{i.email}} {{i.received.all.count}} <a href="/dashboard/poke/{{i.id}}/">Poke</a></p>
+    {%endfor%}
+  </body>
+</html>
